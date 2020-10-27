@@ -3,7 +3,8 @@
         COMMON_MESSAGE:{
             CATCH_ERROR:'Catch error occured',
             NO_DATA_FOUND:'No data Found',
-            IS_EXISTS:'User already exsist'
+            IS_EXISTS:'User already exsist',
+            ERR:'Error occured'
         },
         CREATE_USER_SUCCESS:'User ctreated successfully',
         UPDATE_USER_SUCCESS:'User updated successfully',

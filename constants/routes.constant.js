@@ -12,7 +12,7 @@ const ROUTES={
         METHOD:'DELETE'
     },
     GET_ALL_USERS:{
-        URL:'/user',
+        URL:'/users',
         METHOD:'GET'
     },
     GET_USER:{

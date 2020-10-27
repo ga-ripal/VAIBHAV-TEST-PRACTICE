@@ -10,5 +10,5 @@ mongoose.connect(DB_URI,{useNewUrlParser:true,useUnifiedTopology:true},()=>{
 })
 app.use(require('./routes/api/index.route'))
 app.listen(PORT,()=>{
-    console.log('server started')
+    console.log(`server started ${PORT} http://localhost:${PORT}/api/v1`)
 })

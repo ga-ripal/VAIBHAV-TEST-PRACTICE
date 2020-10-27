@@ -10,7 +10,7 @@ const success = (res,data={},message='')=>{
 }
 
 const failure = (res,err=[], message='')=>{
-    return res.failure(GLOBAL.STATUS_CODE.INTERNAL_SERVER_ERROR).json({
+    return res.status(GLOBAL.STATUS_CODE.INTERNAL_SERVER_ERROR).json({
         success:false,
         message,
         err
