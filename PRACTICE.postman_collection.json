@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "90de790f-ad78-4052-845d-a77b3a941787",
+		"name": "PRACTICE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"RP\",\n\t\"lastName\":\"PATEL\",\n\t\"email\":\"hj@GMAIL.COM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8426/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8426",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8426/api/v1/user/5f97c2798ea8ce2ba8add65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8426",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"5f97c2798ea8ce2ba8add65c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE USER",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"RP\",\n\t\"lastName\":\"PATEL\",\n\t\"email\":\"hkjmjnk@GMAIL.COM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8426/api/v1/user/5f97c2798ea8ce2ba8add65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8426",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"5f97c2798ea8ce2ba8add65c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL USER ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8426/api/v1/users?pageNo=1&limit=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8426",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "rp",
+							"disabled": true
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8426/api/v1/user/5f97c2798ea8ce2ba8add65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8426",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"5f97c2798ea8ce2ba8add65c"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
