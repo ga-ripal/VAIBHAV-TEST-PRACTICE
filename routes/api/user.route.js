@@ -79,13 +79,34 @@ else{
 
 router.get(`${ROUTES.GET_ALL_USERS.URL}`, async(req,res,next)=>{
     try{
-const{search, pageNo, limit} = req.query
+let {search, pageNo, limit} = req.query
+if(search){
+    const user = await User.find({
+        $text:search
+    })
+    if(user && Object.keys(user).length){
+        return apiHelper.success(res,{user}, ERROR_LITERALS.GET_ALL_USERS_SUCCESS, GLOBAL.STATUS_CODE.SUCCESS)
+    }
+}
+if(pageNo && limit){
+    pageNo = parseInt(pageNo)||0;
+    limit = parseInt(limit)||3;
+    const user = await User.find().sort({updated_at:-1}).skip(page*limit).limit(limit).exec((err,docs)=>{
+        if(err){
+            return apiHelper.failure(res,[err], ERROR_LITERAL.COMMON_MESSAGE.ERR, GLOBAL.STATUS_CODE.BAD_REQUEST)
+        }
+        if(user && Object.keys(user).length){
+            return apiHelper.success(res,{user}, ERROR_LITERAL.GET_ALL_USER_SUCCESS, GLOBAL.STATUS_CODE.SUCCESS)
+        }
 
+    })
 
+}
 const user =await User.find()
 if(user && Object.keys(user).length){
     return apiHelper.success(res,{user}, ERROR_LITERALS.GET_ALL_USERS_SUCCESS, GLOBAL.STATUS_CODE.SUCCESS)
 }
+return apiHelper.failure(res, [err],ERROR_LITERAL.COMMON_MESSAGE.NO_DATA_FOUND, GLOBAL.STATUS_CODE.BAD_REQUEST)
     }catch(err){
         return apiHelper.failure(res, [err], ERROR_LITERAL.COMMON_MESSAGE.CATCH_ERROR, GLOBAL.STATUS_CODE.BAD_REQUEST)
     }
